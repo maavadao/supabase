@@ -1,0 +1,8 @@
+# Supabase CLI state
+.branches
+.temp
+
+# OAuth secrets for the local stack
+.env
+.env.*
+!.env.example
