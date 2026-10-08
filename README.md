@@ -1,6 +1,6 @@
 # mawaDao — Supabase
 
-The database and auth setup for [mawaDao](https://mawadao.com): **a non-profit, community-owned marketplace for responsible AI agents, built to bring quality education to underserved children and orphans.**
+The database and auth setup for [mawaDao](https://mawadao.com): **a community-owned ecosystem of agentic AI and blockchain technologies for education.**
 
 The website lives in [mawadao/frontend](https://github.com/mawadao/frontend). This repo holds what Supabase needs: the schema as migrations, row-level security policies, and the config for the local development stack.
 
@@ -18,6 +18,10 @@ The website lives in [mawadao/frontend](https://github.com/mawadao/frontend). Th
   - Columns: `username`, `country` (ISO 3166-1 alpha-2) and `role`.
   - Roles: student, developer, contributor, educator, organisation or funder. They must match `roles` in the frontend's `src/lib/profile.ts`.
   - Members can read and edit only their own row.
+- **`marketplace_listings`**: every tool and agent from [mawadao/marketplace-registry](https://github.com/mawadao/marketplace-registry), synced by that repo's publish workflow on every merge to its `main` (`scripts/sync_supabase.py`), using a service-role key — nothing here writes to it.
+  - Mirrors a listing's YAML (`kind`, `slug`, `name`, `summary`, `category`, `pricing`, …) plus GitHub `stats`, refreshed weekly.
+  - Primary key `(kind, slug)`. A listing removed from the registry removes its row.
+  - Anyone can read; there is no public write access.
 
 ## Local development
 
