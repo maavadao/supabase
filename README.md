@@ -1,8 +1,8 @@
-# mawaDao — Supabase
+# maavaDao — Supabase
 
-The database and auth setup for [mawaDao](https://mawadao.com): **a community-owned ecosystem of agentic AI and blockchain technologies for education.**
+The database and auth setup for [maavaDao](https://maavadao.com): **a community-owned ecosystem of agentic AI and blockchain technologies for education.**
 
-The website lives in [mawadao/frontend](https://github.com/mawadao/frontend). This repo holds what Supabase needs: the schema as migrations, row-level security policies, and the config for the local development stack.
+The website lives in [maavadao/frontend](https://github.com/maavadao/frontend). This repo holds what Supabase needs: the schema as migrations, row-level security policies, and the config for the local development stack.
 
 ## What's here
 
@@ -18,7 +18,7 @@ The website lives in [mawadao/frontend](https://github.com/mawadao/frontend). Th
   - Columns: `username`, `country` (ISO 3166-1 alpha-2) and `role`.
   - Roles: student, developer, contributor, educator, organisation or funder. They must match `roles` in the frontend's `src/lib/profile.ts`.
   - Members can read and edit only their own row.
-- **`marketplace_listings`**: every tool and agent from [mawadao/marketplace-registry](https://github.com/mawadao/marketplace-registry), synced by that repo's publish workflow on every merge to its `main` (`scripts/sync_supabase.py`), using a service-role key — nothing here writes to it.
+- **`marketplace_listings`**: every tool and agent from [maavadao/marketplace-registry](https://github.com/maavadao/marketplace-registry), synced by that repo's publish workflow on every merge to its `main` (`scripts/sync_supabase.py`), using a service-role key — nothing here writes to it.
   - Mirrors a listing's YAML (`kind`, `slug`, `name`, `summary`, `category`, `pricing`, …) plus GitHub `stats`, refreshed weekly.
   - Primary key `(kind, slug)`. A listing removed from the registry removes its row.
   - Anyone can read; there is no public write access.
@@ -37,7 +37,7 @@ npx supabase stop
 
 **Sign-in locally** needs dev-only OAuth apps, separate from production ones:
 
-1. Create a Google OAuth client (Web application) and a GitHub OAuth App ("mawaDao (dev)").
+1. Create a Google OAuth client (Web application) and a GitHub OAuth App ("maavaDao (dev)").
 2. Set the callback URL of both to `http://127.0.0.1:54321/auth/v1/callback`.
 3. Copy `.env.example` to `.env`, fill in the four values, and restart with `npx supabase stop && npx supabase start`.
 
@@ -58,8 +58,8 @@ Don't edit tables by hand in the production dashboard.
 
 The production project's auth settings are set in its dashboard, not from `config.toml`:
 
-- **Site URL:** `https://mawadao.com`.
-- **Redirect URL:** `https://mawadao.com/auth/callback`.
+- **Site URL:** `https://maavadao.com`.
+- **Redirect URL:** `https://maavadao.com/auth/callback`.
 - **Providers:** Google and GitHub, using the production OAuth apps. Their callback is `https://<prod-ref>.supabase.co/auth/v1/callback`.
 - **Email sign-up:** off.
 

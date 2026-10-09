@@ -1,4 +1,4 @@
--- Mirrors mawadao/marketplace-registry: every tool and agent listed there, kept in
+-- Mirrors maavadao/marketplace-registry: every tool and agent listed there, kept in
 -- sync by its GitHub Actions publish workflow on every merge to main (and weekly,
 -- to refresh GitHub stats). Rows are written by that workflow's service role only;
 -- everyone else reads. A listing disappearing from the registry removes its row.
@@ -30,7 +30,7 @@ create table public.marketplace_listings (
   primary key (kind, slug)
 );
 
-comment on table public.marketplace_listings is 'AI agents and tools listed on mawaDao, synced from mawadao/marketplace-registry on every merge.';
+comment on table public.marketplace_listings is 'AI agents and tools listed on maavaDao, synced from maavadao/marketplace-registry on every merge.';
 
 alter table public.marketplace_listings enable row level security;
 
