@@ -245,7 +245,7 @@ otp_expiry = 3600
 # admin_email = "admin@email.com"
 # sender_name = "Admin"
 
-# Email sign-in: a 6-digit code (works on any device) and a link (works in the same browser).
+# Email sign-in: a code and a link to /auth/confirm (a token hash, so it works in any browser or mail app).
 # New members get the confirmation email, returning members the magic link one; both say the same.
 # Production uses the same template, set in the dashboard (Authentication > Emails).
 [auth.email.template.magic_link]

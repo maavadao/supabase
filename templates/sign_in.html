@@ -11,8 +11,8 @@
                 <h1 style="margin:0 0 16px;font-size:24px;line-height:1.2">Your sign-in code</h1>
                 <p style="margin:0 0 24px;font-size:16px;line-height:1.5">Enter this code on maavadao.com to sign in:</p>
                 <p style="margin:0 0 24px;font-size:34px;font-weight:700;letter-spacing:8px">{{ .Token }}</p>
-                <p style="margin:0 0 24px;font-size:16px;line-height:1.5">Or, on this device, <a href="{{ .ConfirmationURL }}" style="color:#0066cc">sign in with one tap</a>.</p>
-                <p style="margin:0;font-size:13px;line-height:1.5;color:#6e6e73">The code works for one hour. If you didn't ask for it, you can ignore this email. Everyone is welcome at maavaDao: developers, volunteers, students, teachers and anyone who wants to help children in need.</p>
+                <p style="margin:0 0 24px;font-size:16px;line-height:1.5">Or <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=email" style="color:#0066cc">sign in with one tap</a>.</p>
+                <p style="margin:0;font-size:13px;line-height:1.5;color:#6e6e73">The code and link work once, for one hour. If you didn't ask for it, you can ignore this email. Everyone is welcome at maavaDao: developers, volunteers, students, teachers and anyone who wants to help children in need.</p>
               </td>
             </tr>
           </table>
